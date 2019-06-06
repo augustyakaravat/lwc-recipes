@@ -1,7 +1,7 @@
 import { LightningElement, api, wire } from 'lwc';
 import { getRecord } from 'lightning/uiRecordApi';
 
-const fields = [
+const FIELDS = [
     'Contact.Name',
     'Contact.Title',
     'Contact.Phone',
@@ -11,7 +11,7 @@ const fields = [
 export default class WireGetRecordDynamicContact extends LightningElement {
     @api recordId;
 
-    @wire(getRecord, { recordId: '$recordId', fields })
+    @wire(getRecord, { recordId: '$recordId', fields: FIELDS })
     contact;
 
     get name() {
